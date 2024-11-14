@@ -1,7 +1,8 @@
 package com.atm.transaction;
 
-import com.atm.model.Account;
 import java.util.Scanner;
+
+import com.atm.model.Account;
 
 public class Withdrawal extends Transaction {
 
@@ -15,11 +16,11 @@ public class Withdrawal extends Transaction {
         System.out.print("Masukkan jumlah penarikan: ");
         double amount = scanner.nextDouble();
 
-        if (amount <= account.getBalance()) {
+        if (amount <= account.getBalance() - Account.MINIMUM_BALANCE) {
             account.debit(amount);
             System.out.println("Penarikan berhasil. Saldo Anda sekarang: " + account.getBalance());
         } else {
-            System.out.println("Saldo tidak mencukupi.");
+            System.out.println("Saldo tidak mencukupi. Saldo minimal yang harus disisakan adalah: " + Account.MINIMUM_BALANCE);
         }
     }
 }
