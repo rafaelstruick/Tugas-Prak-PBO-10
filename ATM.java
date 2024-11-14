@@ -54,7 +54,8 @@ public class ATM {
             System.out.println("2. Deposit");
             System.out.println("3. Transfer");
             System.out.println("4. Cek Saldo");
-            System.out.println("5. Keluar");
+            System.out.println("5. Ubah PIN"); // Ubah pin
+            System.out.println("6. Keluar");
             System.out.print("Pilih opsi: ");
             choice = scanner.nextInt();
 
@@ -84,6 +85,9 @@ public class ATM {
                     System.out.println("Saldo Anda: " + account.getBalance());
                     break;
                 case 5:
+                    account.changePin(); // Memanggil method untuk mengubah PIN
+                    break;
+                case 6:
                     System.out.println("Terima kasih telah menggunakan ATM kami.");
                     break;
                 default:
